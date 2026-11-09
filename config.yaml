@@ -1,0 +1,57 @@
+# ===== ตั้งค่าตัวเช็คงาน (แก้ไฟล์นี้ได้เลย ไม่ต้องแตะโค้ด) =====
+
+# คำค้นหา: ส่งไปค้นในแต่ละเว็บ และใช้กรองชื่อตำแหน่ง
+# (เทียบแบบไม่สนตัวพิมพ์เล็ก-ใหญ่และช่องว่าง → "Cybersecurity" ตรงกับ "Cyber Security")
+keywords:
+  - Business Analyst
+  - Cyber Security
+
+# ชื่อตำแหน่งที่มีคำเหล่านี้จะถูกตัดทิ้ง (เทียบเป็นคำ ไม่สนตัวพิมพ์)
+exclude_title_words:
+  - Senior
+  - Sr
+  - Lead
+  - Leader
+  - Manager
+  - Head
+  - Director
+  - Principal
+  - ผู้จัดการ
+  - หัวหน้า
+  - อาวุโส
+
+# พื้นที่ที่รับ: ถ้าข้อความสถานที่มีคำใดคำหนึ่งต่อไปนี้ถือว่าผ่าน
+# (ถ้าประกาศไม่ระบุพื้นที่ จะส่งมาให้ดูด้วย กันพลาด)
+location_allow:
+  - กรุงเทพ
+  - กทม
+  - Bangkok
+  - เขต          # เขตต่างๆ ของกรุงเทพฯ (ต่างจังหวัดใช้ "อ." / "อำเภอ")
+  - สมุทรปราการ
+  - Samut Prakan
+  - Samutprakan
+  - BTS
+  - MRT
+  - Airport Rail
+  - ARL
+
+# งานที่มีคำเหล่านี้ = Remote → ผ่านเสมอไม่ว่าอยู่จังหวัดไหน และติดป้าย 🏠
+remote_words:
+  - Remote
+  - WFH
+  - Work from home
+  - Work from anywhere
+  - ทำงานที่บ้าน
+  - ทำงานจากที่บ้าน
+
+timezone: Asia/Bangkok
+quiet_hours: {start: 23, end: 7}   # ช่วงนี้แจ้งเตือนแบบไม่มีเสียง
+daily_summary_hour: 9              # ส่งสรุปสุขภาพระบบทุกวันเวลานี้
+failure_alert_after: 3             # เว็บไหนพังติดกันกี่รอบถึงแจ้งเตือน
+
+# เปิด/ปิดเว็บ
+sites:
+  jobthai: true
+  jobsdb: true
+  jobbkk: true
+  jobtopgun: true

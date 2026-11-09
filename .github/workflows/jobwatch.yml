@@ -1,0 +1,45 @@
+name: jobwatch
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # ทุก 15 นาที (เวลา UTC แต่ไม่มีผล เพราะรันตลอดวัน)
+  workflow_dispatch: {}       # กดรันเองได้จากแท็บ Actions
+
+permissions:
+  contents: write             # ให้ commit state.json กลับเข้า repo ได้
+
+concurrency:
+  group: jobwatch
+  cancel-in-progress: false   # ถ้ารอบก่อนยังไม่จบ ให้รอ ไม่รันซ้อน
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check job sites
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python watch.py
+
+      - name: Save state
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain state.json)" ]; then
+            git config user.name "jobwatch-bot"
+            git config user.email "jobwatch-bot@users.noreply.github.com"
+            git add state.json
+            git commit -m "update state [skip ci]"
+            git pull --rebase --autostash || true
+            git push
+          fi
