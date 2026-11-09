@@ -143,6 +143,8 @@ def test_end_to_end(tmp_path, monkeypatch):
         def search_url(self, kw): return self.name
         def parse(self, html): return list(listings[self.name])
 
+    cfg_all_on = {**CFG, "sites": {k: True for k in CFG["sites"]}}
+    monkeypatch.setattr(watch.yaml, "safe_load", lambda s: cfg_all_on)
     monkeypatch.setattr(watch, "ALL_SITES", {n.lower(): FakeSite(n) for n in listings})
     monkeypatch.setattr(watch, "fetch", lambda url, s: "")
 
@@ -171,11 +173,11 @@ def test_failure_alert_after_three(tmp_path, monkeypatch):
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "c")
 
     class Broken:
-        name = "JobsDB"
+        name = "JobThai"
         def search_url(self, kw): return "x"
         def parse(self, html): return []
 
-    monkeypatch.setattr(watch, "ALL_SITES", {"jobsdb": Broken()})
+    monkeypatch.setattr(watch, "ALL_SITES", {"jobthai": Broken()})
     monkeypatch.setattr(watch, "fetch", lambda url, s: "")
     for _ in range(2):
         watch.run()

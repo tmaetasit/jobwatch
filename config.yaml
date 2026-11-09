@@ -52,6 +52,6 @@ failure_alert_after: 3             # เว็บไหนพังติดก�
 # เปิด/ปิดเว็บ
 sites:
   jobthai: true
-  jobsdb: true
+  jobsdb: false     # JobsDB บล็อกการเข้าถึงจาก GitHub (403) → ใช้ Job Alert ของ JobsDB แทน
   jobbkk: true
   jobtopgun: true

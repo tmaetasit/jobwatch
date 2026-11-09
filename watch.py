@@ -164,18 +164,32 @@ def in_quiet_hours(now: datetime, q: dict) -> bool:
 
 
 # ================================================================ main
+FETCH_DEADLINE = 40  # วินาที: ต่อ 1 หน้า ถ้าเกินนี้ถือว่าล้มเหลว (กันค้าง)
+
+
+def _get_once(url: str, session: requests.Session) -> str:
+    start = time.monotonic()
+    with session.get(url, headers=HEADERS, timeout=(10, 20), stream=True) as r:
+        r.raise_for_status()
+        buf = bytearray()
+        for chunk in r.iter_content(65536):
+            buf.extend(chunk)
+            if time.monotonic() - start > FETCH_DEADLINE:
+                raise TimeoutError(f"โหลดหน้าเว็บนานเกิน {FETCH_DEADLINE} วินาที")
+        enc = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
+        return buf.decode(enc, errors="replace")
+
+
 def fetch(url: str, session: requests.Session) -> str:
-    last = None
-    for attempt in range(2):
-        try:
-            r = session.get(url, headers=HEADERS, timeout=30)
-            r.raise_for_status()
-            r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
-            return r.text
-        except requests.RequestException as e:
-            last = e
-            time.sleep(3)
-    raise last  # type: ignore[misc]
+    try:
+        return _get_once(url, session)
+    except requests.HTTPError as e:
+        if e.response is not None and e.response.status_code in (401, 403, 429):
+            raise  # โดนบล็อก ลองซ้ำก็ไม่ช่วย
+        time.sleep(3)
+    except (requests.RequestException, TimeoutError):
+        time.sleep(3)
+    return _get_once(url, session)
 
 
 def run(dry_run: bool = False) -> int:
@@ -202,8 +216,10 @@ def run(dry_run: bool = False) -> int:
         site_failed = False
         for kw in cfg["keywords"]:
             url = site.search_url(kw)
+            t0 = time.monotonic()
             try:
                 jobs = site.parse(fetch(url, session))
+                print(f"[{site.name}] {kw}: โหลด {time.monotonic() - t0:.1f} วินาที")
                 if not jobs:
                     raise ValueError("แยกประกาศงานไม่ได้เลย (หน้าเว็บอาจเปลี่ยน หรือโดนบล็อก)")
             except Exception as e:  # noqa: BLE001
