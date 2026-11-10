@@ -116,7 +116,31 @@ def save_state(st: dict) -> None:
 
 
 # ================================================================ Telegram
+def clean_secret(v: str, is_token: bool = False) -> str:
+    """ตัดตัวเกินที่มักติดมาตอนวาง: ช่องว่าง, ขึ้นบรรทัด, ` ' " และ 'bot' นำหน้า token"""
+    v = v.strip().strip("`'\" \n\r\t")
+    if is_token and v.lower().startswith("bot") and ":" in v:
+        v = v[3:]
+    return v
+
+
 class Telegram:
+    def diagnose(self) -> str:
+        """เช็ค token กับ chat id แยกกัน ให้รู้ว่าผิดตรงไหน (ไม่พิมพ์ค่าลับออกมา)"""
+        if not re.fullmatch(r"\d+:[A-Za-z0-9_-]{30,}", self.token):
+            return f"❌ รูปแบบ TELEGRAM_BOT_TOKEN ไม่ถูกต้อง (ยาว {len(self.token)} ตัว) ควรเป็น ตัวเลข:ตัวอักษร ~35 ตัว"
+        try:
+            me = requests.get(f"https://api.telegram.org/bot{self.token}/getMe", timeout=15).json()
+        except requests.RequestException as e:
+            return f"⚠️ ติดต่อ Telegram ไม่ได้: {e}"
+        if not me.get("ok"):
+            return "❌ TELEGRAM_BOT_TOKEN ใช้ไม่ได้ (อาจเป็นตัวเก่าที่ revoke แล้ว หรือคัดลอกไม่ครบ)"
+        msg = f"✅ token ใช้ได้ (บอท @{me['result'].get('username')})"
+        if not re.fullmatch(r"-?\d+", self.chat_id):
+            return msg + f" แต่ TELEGRAM_CHAT_ID ต้องเป็นตัวเลขล้วน (ตอนนี้ยาว {len(self.chat_id)} ตัว)"
+        return msg
+
+
     def __init__(self, token: str, chat_id: str, dry_run: bool = False):
         self.token, self.chat_id, self.dry_run = token, chat_id, dry_run
 
@@ -197,13 +221,14 @@ def run(dry_run: bool = False, ping: bool = False) -> int:
     tz = ZoneInfo(cfg.get("timezone", "Asia/Bangkok"))
     now = datetime.now(tz)
     today = now.date().isoformat()
-    tg = Telegram(os.environ.get("TELEGRAM_BOT_TOKEN", ""),
-                  os.environ.get("TELEGRAM_CHAT_ID", ""), dry_run)
+    tg = Telegram(clean_secret(os.environ.get("TELEGRAM_BOT_TOKEN", ""), is_token=True),
+                  clean_secret(os.environ.get("TELEGRAM_CHAT_ID", "")), dry_run)
     if not dry_run and not (tg.token and tg.chat_id):
         print("ยังไม่ได้ตั้ง TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID", file=sys.stderr)
         return 2
 
     if ping:
+        print(tg.diagnose())
         ok = tg.send(f"🔔 ทดสอบ jobwatch: บอทส่งข้อความหาคุณได้แล้ว ({now:%d/%m %H:%M})")
         print("ส่งข้อความทดสอบ Telegram:", "สำเร็จ" if ok else "ล้มเหลว — เช็ค TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID และกด Start ในแชทบอท")
         if not ok:
