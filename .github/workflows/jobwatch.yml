@@ -3,7 +3,12 @@ name: jobwatch
 on:
   schedule:
     - cron: "*/15 * * * *"   # ทุก 15 นาที (เวลา UTC แต่ไม่มีผล เพราะรันตลอดวัน)
-  workflow_dispatch: {}       # กดรันเองได้จากแท็บ Actions
+  workflow_dispatch:          # กดรันเองได้ / ให้ cron-job.org สั่งรันทุก 15 นาที
+    inputs:
+      ping:
+        description: "ส่งข้อความทดสอบเข้า Telegram ด้วย"
+        type: boolean
+        default: false
 
 permissions:
   contents: write             # ให้ commit state.json กลับเข้า repo ได้
@@ -31,7 +36,7 @@ jobs:
           PYTHONUNBUFFERED: "1"   # ให้ log ขึ้นทันทีระหว่างรัน
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python watch.py
+        run: python watch.py ${{ inputs.ping && '--ping' || '' }}
 
       - name: Save state
         if: always()

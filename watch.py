@@ -192,7 +192,7 @@ def fetch(url: str, session: requests.Session) -> str:
     return _get_once(url, session)
 
 
-def run(dry_run: bool = False) -> int:
+def run(dry_run: bool = False, ping: bool = False) -> int:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     tz = ZoneInfo(cfg.get("timezone", "Asia/Bangkok"))
     now = datetime.now(tz)
@@ -202,6 +202,12 @@ def run(dry_run: bool = False) -> int:
     if not dry_run and not (tg.token and tg.chat_id):
         print("ยังไม่ได้ตั้ง TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID", file=sys.stderr)
         return 2
+
+    if ping:
+        ok = tg.send(f"🔔 ทดสอบ jobwatch: บอทส่งข้อความหาคุณได้แล้ว ({now:%d/%m %H:%M})")
+        print("ส่งข้อความทดสอบ Telegram:", "สำเร็จ" if ok else "ล้มเหลว — เช็ค TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID และกด Start ในแชทบอท")
+        if not ok:
+            return 1
 
     st = normalize_state(load_state())
     silent = in_quiet_hours(now, cfg["quiet_hours"])
@@ -294,4 +300,4 @@ def run(dry_run: bool = False) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(run(dry_run="--dry-run" in sys.argv))
+    sys.exit(run(dry_run="--dry-run" in sys.argv, ping="--ping" in sys.argv))
