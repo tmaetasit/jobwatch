@@ -265,17 +265,17 @@
   "2026-11-12": {
    "JobBKK": {
     "fail": 0,
-    "ok": 1,
+    "ok": 2,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 1,
+    "ok": 2,
     "sent": 1
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 1,
+    "ok": 2,
     "sent": 0
    }
   }
