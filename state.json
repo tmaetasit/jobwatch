@@ -19,6 +19,7 @@
   "JobsDB": 1
  },
  "fingerprints": {
+  "12พย69|productowner/businessanalyst": "2026-11-12",
   "dynamicsmotion|businessanalyst(ba)(flexibletime-เลือกเวลางานได้เองทุกวัน)": "2026-11-11",
   "easybuy|businessanalyst": "2026-11-12",
   "geniussoft|businessanalyst": "2026-11-12",
@@ -139,6 +140,7 @@
   "JobThai:1976856": "2026-11-10",
   "JobThai:1978289": "2026-11-11",
   "JobThai:1978361": "2026-11-12",
+  "JobThai:1978475": "2026-11-12",
   "JobThai:1978802": "2026-11-10",
   "JobThai:1979347": "2026-11-10",
   "JobThai:1979994": "2026-11-10",
@@ -227,7 +229,8 @@
   "JobTopGun:j746-218": "2026-11-10",
   "JobTopGun:j746-220": "2026-11-10",
   "JobTopGun:j83-2093": "2026-11-10",
-  "JobTopGun:j87-196": "2026-11-10"
+  "JobTopGun:j87-196": "2026-11-10",
+  "JobTopGun:j874-1963": "2026-11-12"
  },
  "stats": {
   "2026-11-10": {
@@ -272,17 +275,17 @@
   "2026-11-12": {
    "JobBKK": {
     "fail": 0,
-    "ok": 3,
+    "ok": 4,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 3,
-    "sent": 2
+    "ok": 4,
+    "sent": 3
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 3,
+    "ok": 4,
     "sent": 0
    }
   }
