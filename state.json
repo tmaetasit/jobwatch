@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 1,
+  "JobBKK": 2,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -440,18 +440,18 @@
   },
   "2026-11-20": {
    "JobBKK": {
-    "fail": 1,
+    "fail": 2,
     "ok": 0,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 1,
+    "ok": 2,
     "sent": 0
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 1,
+    "ok": 2,
     "sent": 0
    }
   }
