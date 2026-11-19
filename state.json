@@ -20,6 +20,7 @@
  },
  "fingerprints": {
   "12พย69|productowner/businessanalyst": "2026-11-12",
+  "alignsolution|businessanalyst": "2026-11-19",
   "dynamicsmotion|businessanalyst(ba)(flexibletime-เลือกเวลางานได้เองทุกวัน)": "2026-11-11",
   "easybuy|businessanalyst": "2026-11-12",
   "geniussoft|businessanalyst": "2026-11-12",
@@ -32,7 +33,7 @@
   "เอซิสโปรเฟสชั่นนัลเซ็นเตอร์|cybersecurityconsultant": "2026-11-11",
   "ไซเบอร์ตรอน|cybersecurityanalyst(usecasedeveloper)": "2026-11-11"
  },
- "last_summary": "2026-11-18",
+ "last_summary": "2026-11-19",
  "seen": {
   "JobBKK:1003482": "2026-11-10",
   "JobBKK:1008203": "2026-11-10",
@@ -156,6 +157,7 @@
   "JobThai:1947479": "2026-11-15",
   "JobThai:1949969": "2026-11-14",
   "JobThai:1951748": "2026-11-10",
+  "JobThai:1953307": "2026-11-19",
   "JobThai:1953569": "2026-11-16",
   "JobThai:1953596": "2026-11-19",
   "JobThai:1954641": "2026-11-15",
@@ -226,6 +228,8 @@
   "JobThai:1986900": "2026-11-18",
   "JobThai:1986993": "2026-11-18",
   "JobThai:1987284": "2026-11-18",
+  "JobThai:1987566": "2026-11-19",
+  "JobThai:843893": "2026-11-19",
   "JobThai:954850": "2026-11-10",
   "JobTopGun:j1353-383": "2026-11-10",
   "JobTopGun:j1353-387": "2026-11-10",
@@ -436,17 +440,17 @@
   "2026-11-19": {
    "JobBKK": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 2,
-    "sent": 0
+    "ok": 3,
+    "sent": 1
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    }
   }
