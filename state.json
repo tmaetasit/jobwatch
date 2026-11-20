@@ -8,12 +8,12 @@
   "jobtopgun|cybersecurity"
  ],
  "down_alerted": {
-  "JobBKK": false,
+  "JobBKK": true,
   "JobThai": false,
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 2,
+  "JobBKK": 3,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -33,7 +33,7 @@
   "เอซิสโปรเฟสชั่นนัลเซ็นเตอร์|cybersecurityconsultant": "2026-11-11",
   "ไซเบอร์ตรอน|cybersecurityanalyst(usecasedeveloper)": "2026-11-11"
  },
- "last_summary": "2026-11-19",
+ "last_summary": "2026-11-20",
  "seen": {
   "JobBKK:1003482": "2026-11-10",
   "JobBKK:1008203": "2026-11-10",
@@ -440,18 +440,18 @@
   },
   "2026-11-20": {
    "JobBKK": {
-    "fail": 2,
+    "fail": 3,
     "ok": 0,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    }
   }
