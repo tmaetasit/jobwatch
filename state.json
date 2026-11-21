@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 7,
+  "JobBKK": 8,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -329,23 +329,6 @@
   "JobTopGun:j874-1963": "2026-11-12"
  },
  "stats": {
-  "2026-11-14": {
-   "JobBKK": {
-    "fail": 0,
-    "ok": 4,
-    "sent": 0
-   },
-   "JobThai": {
-    "fail": 0,
-    "ok": 4,
-    "sent": 0
-   },
-   "JobTopGun": {
-    "fail": 0,
-    "ok": 4,
-    "sent": 0
-   }
-  },
   "2026-11-15": {
    "JobBKK": {
     "fail": 0,
@@ -462,6 +445,23 @@
    "JobTopGun": {
     "fail": 0,
     "ok": 3,
+    "sent": 0
+   }
+  },
+  "2026-11-22": {
+   "JobBKK": {
+    "fail": 1,
+    "ok": 0,
+    "sent": 0
+   },
+   "JobThai": {
+    "fail": 0,
+    "ok": 1,
+    "sent": 0
+   },
+   "JobTopGun": {
+    "fail": 0,
+    "ok": 1,
     "sent": 0
    }
   }
