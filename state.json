@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 14,
+  "JobBKK": 15,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -30,10 +30,12 @@
   "thinknet|businessanalyst(ba)-wfh95%+office5%": "2026-11-10",
   "thinknetสำหรับทดสอบระบบเท่านั้น|businessanalyst(ba)-wfh95%+office5%": "2026-11-22",
   "ดับบลิวเอสโอแอล|businessanalyst(ba)": "2026-11-11",
+  "ทีบีเอ็นคอร์ปอเรชั่น|businessanalyst(n2nlendingsolution)": "2026-11-23",
   "ธนบุรีพานิชผู้แทนจำหน่ายรถยนต์เมอร์เซเดสเบนซ์และศูนย์บริการอย่างเป็นทางการ|เจ้าหน้าที่วิเคราะห์ข้อมูลธุรกิจ(businessanalyst)": "2026-11-11",
   "พลาสติคและหีบห่อไทย|supplychainbusinessanalyst(1-yearcontract)": "2026-11-20",
   "ฟิลลิปประกันชีวิต|businessanalyst": "2026-11-10",
   "อโยเดีย|businessanalyst": "2026-11-20",
+  "เมโทรซิสเต็มส์คอร์ปอเรชั่น|system&businessanalyst(outsource)": "2026-11-23",
   "เอซิสโปรเฟสชั่นนัลเซ็นเตอร์|cybersecurityconsultant": "2026-11-11",
   "ไซเบอร์ตรอน|cybersecurityanalyst(usecasedeveloper)": "2026-11-11"
  },
@@ -199,6 +201,7 @@
   "JobThai:1970129": "2026-11-16",
   "JobThai:1970662": "2026-11-10",
   "JobThai:1970783": "2026-11-10",
+  "JobThai:1971169": "2026-11-23",
   "JobThai:1971270": "2026-11-16",
   "JobThai:1972749": "2026-11-10",
   "JobThai:1973678": "2026-11-15",
@@ -254,6 +257,7 @@
   "JobThai:1988300": "2026-11-20",
   "JobThai:843893": "2026-11-19",
   "JobThai:954850": "2026-11-10",
+  "JobTopGun:j11391-593": "2026-11-23",
   "JobTopGun:j1353-383": "2026-11-10",
   "JobTopGun:j1353-387": "2026-11-10",
   "JobTopGun:j1353-418": "2026-11-10",
@@ -276,9 +280,11 @@
   "JobTopGun:j18228-61": "2026-11-16",
   "JobTopGun:j18482-142": "2026-11-10",
   "JobTopGun:j19114-170": "2026-11-10",
+  "JobTopGun:j19713-47": "2026-11-23",
   "JobTopGun:j20196-376": "2026-11-10",
   "JobTopGun:j2087-308": "2026-11-10",
   "JobTopGun:j2124-1176": "2026-11-18",
+  "JobTopGun:j2124-1179": "2026-11-23",
   "JobTopGun:j21343-10368": "2026-11-10",
   "JobTopGun:j21343-10374": "2026-11-10",
   "JobTopGun:j21343-10434": "2026-11-11",
@@ -465,19 +471,19 @@
   },
   "2026-11-23": {
    "JobBKK": {
-    "fail": 3,
+    "fail": 4,
     "ok": 0,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 3,
-    "sent": 0
+    "ok": 4,
+    "sent": 1
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 3,
-    "sent": 0
+    "ok": 4,
+    "sent": 1
    }
   }
  }
