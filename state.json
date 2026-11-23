@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 13,
+  "JobBKK": 14,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -37,7 +37,7 @@
   "เอซิสโปรเฟสชั่นนัลเซ็นเตอร์|cybersecurityconsultant": "2026-11-11",
   "ไซเบอร์ตรอน|cybersecurityanalyst(usecasedeveloper)": "2026-11-11"
  },
- "last_summary": "2026-11-22",
+ "last_summary": "2026-11-23",
  "seen": {
   "JobBKK:1003482": "2026-11-10",
   "JobBKK:1008203": "2026-11-10",
@@ -321,6 +321,7 @@
   "JobTopGun:j302-961": "2026-11-10",
   "JobTopGun:j306-253": "2026-11-11",
   "JobTopGun:j31033-64": "2026-11-10",
+  "JobTopGun:j31033-69": "2026-11-23",
   "JobTopGun:j3116-138": "2026-11-10",
   "JobTopGun:j332-881": "2026-11-15",
   "JobTopGun:j3482-205": "2026-11-10",
@@ -464,18 +465,18 @@
   },
   "2026-11-23": {
    "JobBKK": {
-    "fail": 2,
+    "fail": 3,
     "ok": 0,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    }
   }
