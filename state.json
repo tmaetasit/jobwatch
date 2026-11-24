@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 17,
+  "JobBKK": 18,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -285,6 +285,8 @@
   "JobTopGun:j18228-57": "2026-11-11",
   "JobTopGun:j18228-61": "2026-11-16",
   "JobTopGun:j18482-142": "2026-11-10",
+  "JobTopGun:j19102-28": "2026-11-25",
+  "JobTopGun:j19102-29": "2026-11-25",
   "JobTopGun:j19114-170": "2026-11-10",
   "JobTopGun:j19713-47": "2026-11-23",
   "JobTopGun:j20196-376": "2026-11-10",
@@ -357,23 +359,6 @@
   "JobTopGun:j874-1963": "2026-11-12"
  },
  "stats": {
-  "2026-11-17": {
-   "JobBKK": {
-    "fail": 0,
-    "ok": 3,
-    "sent": 0
-   },
-   "JobThai": {
-    "fail": 0,
-    "ok": 3,
-    "sent": 0
-   },
-   "JobTopGun": {
-    "fail": 0,
-    "ok": 3,
-    "sent": 0
-   }
-  },
   "2026-11-18": {
    "JobBKK": {
     "fail": 0,
@@ -490,6 +475,23 @@
    "JobTopGun": {
     "fail": 0,
     "ok": 2,
+    "sent": 0
+   }
+  },
+  "2026-11-25": {
+   "JobBKK": {
+    "fail": 1,
+    "ok": 0,
+    "sent": 0
+   },
+   "JobThai": {
+    "fail": 0,
+    "ok": 1,
+    "sent": 0
+   },
+   "JobTopGun": {
+    "fail": 0,
+    "ok": 1,
     "sent": 0
    }
   }
