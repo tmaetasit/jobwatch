@@ -13,7 +13,7 @@
   "JobTopGun": false
  },
  "failures": {
-  "JobBKK": 25,
+  "JobBKK": 26,
   "JobThai": 0,
   "JobTopGun": 0,
   "JobsDB": 1
@@ -352,6 +352,7 @@
   "JobTopGun:j4261-483": "2026-11-10",
   "JobTopGun:j4718-350": "2026-11-15",
   "JobTopGun:j5689-110": "2026-11-20",
+  "JobTopGun:j5981-101": "2026-11-27",
   "JobTopGun:j6066-166": "2026-11-10",
   "JobTopGun:j607-119": "2026-11-10",
   "JobTopGun:j6291-299": "2026-11-10",
@@ -485,18 +486,18 @@
   },
   "2026-11-27": {
    "JobBKK": {
-    "fail": 2,
+    "fail": 3,
     "ok": 0,
     "sent": 0
    },
    "JobThai": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    },
    "JobTopGun": {
     "fail": 0,
-    "ok": 2,
+    "ok": 3,
     "sent": 0
    }
   }
